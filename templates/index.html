@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Find Control Codes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.9">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-T8nCKHWx6xKANyXphGTh94U1am8r3fUKVjWT11a2Uq/kmRi/z0iF6v0L6ltLm0nYP12RRZrR3Ee4TrEL5bz4cA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+    <a href="/upload" class="upload-button">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon">
+            <path
+                d="M12 0L8.6 3.4L11 5.8V14H13V5.8L15.4 3.4L12 0ZM4 8H2V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V8H20V18H4V8Z"
+                fill="currentColor" />
+        </svg>
+        <span class="button-text">Upload Your Layout</span>
+    </a>
+
+
+
+
+</head>
+
+<body>
+    <div class="social-links">
+        <a href="https://www.reddit.com/r/Critical_Thinker_219/" target="_blank">
+            <img src="{{ url_for('static', filename='reddit.png') }}" alt="Reddit"> Reddit
+        </a>
+        <a href="https://github.com/CookieCums" target="_blank">
+            <img src="{{ url_for('static', filename='github.png') }}" alt="GitHub"> GitHub
+        </a>
+    </div>
+    <div class="container">
+        <h2>Find Control Codes</h2>
+        <form action="/match" method="post" onsubmit="return validateForm()">
+            <label for="game">Select Game:</label>
+            <select id="game" name="game">
+                <option value="bgmi">BGMI</option>
+                <option value="pubg">PUBG</option>
+
+            </select>
+
+            <label for="device">Select Device:</label>
+            <select id="device" name="device">
+                <option value="Android">Android</option>
+                <option value="iPhone">iPhone</option>
+                <option value="iPad">iPad</option>
+            </select>
+
+            <label for="device_size">Select Device Size:</label>
+            <select id="device_size" name="device_size">
+
+            </select>
+
+            <label for="claw">Select claw:</label>
+            <select id="claw" name="claw">
+                <option value="2.0">2 Finger</option>
+                <option value="3.0">3 Finger</option>
+                <option value="4.0">4 Finger</option>
+                <option value="5.0">5 Finger</option>
+                <option value="6.0">6 Finger</option>
+            </select>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <div class="watermark">Created By Critical_Thinker_219 with ❤️</div>
+</body>
+
+</html>

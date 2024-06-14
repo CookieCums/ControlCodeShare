@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Upload Your Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.9">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-T8nCKHWx6xKANyXphGTh94U1am8r3fUKVjWT11a2Uq/kmRi/z0iF6v0L6ltLm0nYP12RRZrR3Ee4TrEL5bz4cA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</head>
+
+<body>
+    <a href="/">home</a>
+    <div class="social-links">
+        <a href="https://www.reddit.com/r/Critical_Thinker_219/" target="_blank">
+            <img src="{{ url_for('static', filename='reddit.png') }}" alt="Reddit"> Reddit
+        </a>
+        <a href="https://github.com/CookieCums" target="_blank">
+            <img src="{{ url_for('static', filename='github.png') }}" alt="GitHub"> GitHub
+        </a>
+    </div>
+    <div class="container">
+        <h2>Upload Your Own Settings</h2>
+        <form action="/upload_settings" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="game">Select Game:</label>
+            <select id="game" name="game">
+                <option value="bgmi">BGMI</option>
+                <option value="pubg">PUBG</option>
+
+            </select>
+
+            <label for="device">Select Device:</label>
+            <select id="device" name="device">
+                <option value="Android">Android</option>
+                <option value="iPhone">iPhone</option>
+                <option value="iPad">iPad</option>
+            </select>
+
+            <label for="device_size">Select Device Size:</label>
+            <select id="device_size" name="device_size">
+
+            </select>
+
+            <label for="claw">Select claw:</label>
+            <select id="claw" name="claw">
+                <option value="2.0">2 Finger</option>
+                <option value="3.0">3 Finger</option>
+                <option value="4.0">4 Finger</option>
+                <option value="5.0">5 Finger</option>
+                <option value="6.0">6 Finger</option>
+            </select>
+
+            <label for="sensitivity_code">Sensitivity Code:</label>
+            <input type="text" id="sensitivity_code" name="sensitivity_code" required>
+
+            <label for="control_code">Control Code:</label>
+            <input type="text" id="control_code" name="control_code" required>
+
+            <label for="controls_image" class="file-upload-label">Add image</Select>:</label>
+            <div class="file-upload">
+                <input type="file" id="controls_image" name="controls_image" required>
+            </div>
+
+            <input type="submit" value="Upload">
+
+        </form>
+    </div>
+    <div class="watermark">Created By Critical_Thinker_219 with ❤️</div>
+</body>
+
+</html>

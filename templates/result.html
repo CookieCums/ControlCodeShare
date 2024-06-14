@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=0.9">
+    <meta charset="UTF-8">
+    <title>Profile Matched</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</head>
+
+<body>
+    <div class="social-links">
+        <a href="https://www.reddit.com/r/Critical_Thinker_219/" target="_blank">
+            <img src="{{ url_for('static', filename='reddit.png') }}" alt="Reddit"> Reddit
+        </a>
+        <a href="https://github.com/CookieCums" target="_blank">
+            <img src="{{ url_for('static', filename='github.png') }}" alt="GitHub"> GitHub
+        </a>
+    </div>
+    <div class="container">
+        <h2>Profiles Matched for {{ profiles[0].game }} & {{ profiles[0].claw|default('5FingerClaw') }} ({{
+            profiles[0].device }})</h2>
+        <div class="profiles">
+            {% if profiles %}
+            {% for profile in profiles %}
+            <div class="profile-card">
+                <div class="profile-info">
+                    <h2>Uploaded By {{ profile.username | truncate(20, '...') }}</h2>
+                    <p>Sensitivity Code: {{ profile.sensitivity_code }}</p>
+                    <p>Control Code: {{ profile.control_code }}</p>
+                    <button class="copy-button" onclick="copyControlCode('{{ profile.control_code }}')">Copy Control
+                        Code</button>
+                    <button class="copy-button" onclick="copySensitivityCode('{{ profile.sensitivity_code }}')">Copy
+                        Sensitivity Code</button>
+                    <button class="toggle-image-button"
+                        onclick="toggleImage(this, '{{ profile.controls_image_url }}', event)">Show</button>
+                </div>
+                <div class="image-container">
+                    <img src="{{ profile.controls_image_url }}" alt="Controls Screenshot">
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <p>No profiles matched the criteria.</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="watermark">Created By Critical_Thinker_219 with ❤️</div>
+</body>
+
+</html>
